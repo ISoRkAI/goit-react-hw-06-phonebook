@@ -1,17 +1,20 @@
+import { useDispatch, useSelector } from 'react-redux';
+
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import css from './App.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+
 import { addContact, remove } from 'redux/myContactSlice';
 import { contactFilter } from 'redux/myFilterSlice';
 
 export default function App() {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.contacts);
   const filter = useSelector(state => state.filter.filter);
   const dispatch = useDispatch();
 
   const addContacts = ({ id, name, number }) => {
+    console.log(contacts);
     if (
       contacts.find(contact => {
         return contact.name === name;

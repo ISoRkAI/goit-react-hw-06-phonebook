@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import shortid from 'shortid';
+
 import css from './ContactForm.module.css';
 
 export default function ContactForm({ addContacts }) {
@@ -9,9 +10,11 @@ export default function ContactForm({ addContacts }) {
   const formNameChange = e => {
     setName(e.currentTarget.value);
   };
+
   const formNumberChange = e => {
     setNumber(e.currentTarget.value);
   };
+
   const formSubmit = e => {
     e.preventDefault();
     addContacts({
@@ -21,6 +24,7 @@ export default function ContactForm({ addContacts }) {
     });
     e.currentTarget.reset();
   };
+
   return (
     <div className={css.container}>
       <form onSubmit={formSubmit}>

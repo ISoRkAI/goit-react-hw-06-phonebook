@@ -1,26 +1,27 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
-import { useDispatch } from 'react-redux';
-
 const ContactList = ({ filter, onDeleteContact }) => {
+  console.log(filter);
   const dispatch = useDispatch();
   return (
     <ul className={css.list}>
-      {filter.map(({ id, name, number }) => (
-        <li className={css.item} key={id}>
-          <p className={css.text}>
-            {name}: {number}
-          </p>
-          <button
-            className={css.btnDelete}
-            type="button"
-            onClick={() => dispatch(onDeleteContact(id))}
-          >
-            Delete
-          </button>
-        </li>
-      ))}
+      {filter.length > 0 &&
+        filter.map(({ id, name, number }) => (
+          <li className={css.item} key={id}>
+            <p className={css.text}>
+              {name}: {number}
+            </p>
+            <button
+              className={css.btnDelete}
+              type="button"
+              onClick={() => dispatch(onDeleteContact(id))}
+            >
+              Delete
+            </button>
+          </li>
+        ))}
     </ul>
   );
 };
