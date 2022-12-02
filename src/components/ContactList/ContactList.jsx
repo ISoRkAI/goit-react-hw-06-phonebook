@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import css from './ContactList.module.css';
 const ContactList = ({ filter, onDeleteContact }) => {
-  console.log(filter);
   const dispatch = useDispatch();
+
   return (
     <ul className={css.list}>
       {filter.length > 0 &&

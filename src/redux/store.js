@@ -10,8 +10,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { myContactSlice } from './myContactSlice';
-import { myFilterSlice } from './myFilterSlice';
+import { myContactSlice } from './slices/contactSlice';
+import { myFilterSlice } from './slices/filterSlice';
 
 const persistConfig = {
   key: 'root',
